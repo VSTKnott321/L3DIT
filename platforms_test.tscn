@@ -6,6 +6,7 @@
 size = Vector2(445, 86)
 
 [node name="platforms_test" type="StaticBody2D"]
+scale = Vector2(1, 4.96)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(212.5, 33)
