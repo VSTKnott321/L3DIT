@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr5a7flbn2y5m"
-path="res://.godot/imported/spherewip.png-132de063e9466aff1c84ae392ce395ea.ctex"
+uid="uid://d2cq6itpjlrec"
+path="res://.godot/imported/lazerbullet.png-159a9eb1e0d9f4c83ca8b8f00a5a8a32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/spherewip.png"
-dest_files=["res://.godot/imported/spherewip.png-132de063e9466aff1c84ae392ce395ea.ctex"]
+source_file="res://sprites/lazerbullet.png"
+dest_files=["res://.godot/imported/lazerbullet.png-159a9eb1e0d9f4c83ca8b8f00a5a8a32.ctex"]
 
 [params]
 
