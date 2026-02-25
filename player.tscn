@@ -13,6 +13,10 @@
 [sub_resource type="GDScript" id="GDScript_0gctd"]
 script/source = "extends CharacterBody2D
 
+
+signal died
+
+
 @export var acceleration : int = -10
 @export var lazerbullet = preload(\"res://bullet.tscn\")
 
@@ -22,6 +26,7 @@ const JUMP_VELOCITY = -800.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 1400
 var DBJump = 2
+var health = 100
 @onready var barrel = $CollisionShape2D/RayCast2D
 
  
@@ -40,7 +45,9 @@ func _physics_process(delta):
 		shoot()
 
 		
-	
+	if health <= 0:
+		queue_free()
+		died.emit()
 	
 	if Input.is_action_pressed(\"Left_click\"):
 		autoshoot()
@@ -97,8 +104,15 @@ func shoot():
 	#lazerbullet.global_position = barrel.global_position
 
 
-func _on_area_2d_body_entered(body):
-	print(\"touched enemy!!\") # Replace with function body.
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	health = health -25
+
+
+
+
+
+
+
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3md2i"]
@@ -820,6 +834,7 @@ frame = 3
 frame_progress = 1.0
 
 [node name="L2Cannon" type="AnimatedSprite2D" parent="CollisionShape2D"]
+visible = false
 position = Vector2(136, 4.5)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_8nnuj")
@@ -839,7 +854,7 @@ visible = false
 position = Vector2(137, 3.5)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_0dahs")
-frame = 5
+frame = 7
 frame_progress = 1.0
 
 [node name="L3autogun" type="AnimatedSprite2D" parent="CollisionShape2D"]
@@ -858,14 +873,13 @@ frame = 9
 frame_progress = 1.0
 
 [node name="L3shotgun" type="AnimatedSprite2D" parent="CollisionShape2D"]
-visible = false
 material = SubResource("CanvasItemMaterial_dwp06")
 position = Vector2(157, 0.5)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_5q576")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.107563
+frame_progress = 0.7324
 
 [node name="RayCast2D" type="RayCast2D" parent="CollisionShape2D"]
 position = Vector2(180, 0)

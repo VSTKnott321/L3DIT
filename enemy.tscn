@@ -1,9 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpkj54apb21go"]
+[gd_scene load_steps=9 format=3 uid="uid://dpkj54apb21go"]
 
-[ext_resource type="Texture2D" uid="uid://brd0h4a0v54rv" path="res://icon.svg" id="1_lh6v5"]
+[ext_resource type="Texture2D" uid="uid://ckikn72y0ccjf" path="res://sprites/spaceship1.png" id="1_707kl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lyby"]
+atlas = ExtResource("1_707kl")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqym6"]
+atlas = ExtResource("1_707kl")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22142"]
+atlas = ExtResource("1_707kl")
+region = Rect2(640, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bnly"]
+atlas = ExtResource("1_707kl")
+region = Rect2(960, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qjip7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lyby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqym6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22142")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bnly")
+}],
+"loop": true,
+"name": &"default",
+"speed": 11.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rd0eh"]
-size = Vector2(114, 117)
+size = Vector2(32.1333, 328.41)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bbver"]
 radius = 436.005
@@ -12,11 +48,19 @@ radius = 436.005
 collision_layer = 8
 collision_mask = 9
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_lh6v5")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qjip7")
+autoplay = "default"
+frame_progress = 0.371947
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -0.5)
+position = Vector2(17, 1.5)
+shape = SubResource("RectangleShape2D_rd0eh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(32.757, -128.493)
+rotation = -1.56784
+scale = Vector2(1.96011, -0.44)
 shape = SubResource("RectangleShape2D_rd0eh")
 
 [node name="sight" type="Area2D" parent="."]
