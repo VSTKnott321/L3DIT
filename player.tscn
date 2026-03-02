@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cr5a7flbn2y5m" path="res://sprites/spherewip.png" id="3_523gh"]
 [ext_resource type="Texture2D" uid="uid://bwj4d3eincdxt" path="res://sprites/shotgun1.png" id="4_x0jom"]
 [ext_resource type="Texture2D" uid="uid://c7fc77efukar4" path="res://sprites/autogun.png" id="5_a2g15"]
-[ext_resource type="Texture2D" uid="uid://co0vix2exnkjw" path="res://sprites/shotgun2.png" id="6_fut8u"]
 [ext_resource type="Texture2D" uid="uid://bhn5mrxyauo8o" path="res://sprites/doublecannon.png" id="7_otflw"]
+[ext_resource type="Texture2D" uid="uid://l4gsed2s511i" path="res://sprites/L3Shotgun.png" id="8_0slp6"]
 [ext_resource type="Texture2D" uid="uid://csv22rs7us3yp" path="res://sprites/autogunL3.png" id="8_we46k"]
 
 [sub_resource type="GDScript" id="GDScript_0gctd"]
@@ -28,7 +28,7 @@ var gravity = 1400
 var DBJump = 2
 var health = 100
 @onready var barrel = $CollisionShape2D/RayCast2D
-
+@onready var camrea_remote_transform = $CameraRemoteTransform2D
  
 
 
@@ -771,30 +771,30 @@ animations = [{
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dwp06"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gs2mi"]
-atlas = ExtResource("6_fut8u")
-region = Rect2(2560, 0, 320, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2vxb0"]
-atlas = ExtResource("6_fut8u")
-region = Rect2(2240, 0, 320, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vgh6i"]
-atlas = ExtResource("6_fut8u")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdad6"]
+atlas = ExtResource("8_0slp6")
 region = Rect2(0, 0, 320, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oxh06"]
-atlas = ExtResource("6_fut8u")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjvxa"]
+atlas = ExtResource("8_0slp6")
 region = Rect2(320, 0, 320, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4s8v"]
+atlas = ExtResource("8_0slp6")
+region = Rect2(640, 0, 320, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jtkh"]
+atlas = ExtResource("8_0slp6")
+region = Rect2(960, 0, 320, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5q576"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gs2mi")
+"texture": SubResource("AtlasTexture_fdad6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2vxb0")
+"texture": SubResource("AtlasTexture_qjvxa")
 }],
 "loop": true,
 "name": &"idle",
@@ -802,10 +802,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vgh6i")
+"texture": SubResource("AtlasTexture_t4s8v")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oxh06")
+"texture": SubResource("AtlasTexture_7jtkh")
 }],
 "loop": true,
 "name": &"shoot",
@@ -850,7 +850,6 @@ frame = 23
 frame_progress = 1.0
 
 [node name="L2autogun" type="AnimatedSprite2D" parent="CollisionShape2D"]
-visible = false
 position = Vector2(137, 3.5)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_0dahs")
@@ -873,13 +872,14 @@ frame = 9
 frame_progress = 1.0
 
 [node name="L3shotgun" type="AnimatedSprite2D" parent="CollisionShape2D"]
+visible = false
 material = SubResource("CanvasItemMaterial_dwp06")
-position = Vector2(157, 0.5)
+position = Vector2(151, 0.5)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_5q576")
-animation = &"idle"
+animation = &"shoot"
 autoplay = "idle"
-frame_progress = 0.7324
+frame_progress = 0.452589
 
 [node name="RayCast2D" type="RayCast2D" parent="CollisionShape2D"]
 position = Vector2(180, 0)
@@ -897,5 +897,8 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(594, 311)
 shape = SubResource("CircleShape2D_7r56c")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(594, 307)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

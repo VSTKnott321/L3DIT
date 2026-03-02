@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dpkj54apb21go"]
+[gd_scene load_steps=10 format=3 uid="uid://dpkj54apb21go"]
 
+[ext_resource type="Script" path="res://enemy.gd" id="1_41cmg"]
 [ext_resource type="Texture2D" uid="uid://ckikn72y0ccjf" path="res://sprites/spaceship1.png" id="1_707kl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8lyby"]
@@ -47,11 +48,12 @@ radius = 436.005
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 9
+script = ExtResource("1_41cmg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qjip7")
 autoplay = "default"
-frame_progress = 0.371947
+frame_progress = 0.861362
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(17, 1.5)
@@ -69,3 +71,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sight"]
 shape = SubResource("CircleShape2D_bbver")
+
+[connection signal="area_entered" from="sight" to="." method="_on_sight_area_entered"]
+[connection signal="body_entered" from="sight" to="." method="_on_sight_body_entered"]
+[connection signal="body_exited" from="sight" to="." method="_on_sight_body_exited"]
