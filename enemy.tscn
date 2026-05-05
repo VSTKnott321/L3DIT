@@ -88,6 +88,7 @@ collision_mask = 9
 script = ExtResource("1_41cmg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_qjip7")
 autoplay = "default"
 frame_progress = 0.861362
@@ -110,12 +111,11 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_bbver")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(32, -103)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_fjw12")
 autoplay = "default"
-frame_progress = 0.245156
+frame_progress = 0.600481
 
 [connection signal="area_entered" from="sight" to="." method="_on_sight_area_entered"]
 [connection signal="body_entered" from="sight" to="." method="_on_sight_body_entered"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://du6yg1qfbgrqj"]
+[gd_scene load_steps=6 format=3 uid="uid://du6yg1qfbgrqj"]
 
 [ext_resource type="PackedScene" uid="uid://dghlvllfqxfl0" path="res://player.tscn" id="1_4ope4"]
 [ext_resource type="Script" path="res://levels/world.gd" id="1_6c6dl"]
 [ext_resource type="PackedScene" uid="uid://b6n2phpnel3p1" path="res://platforms_test.tscn" id="2_31dan"]
 [ext_resource type="PackedScene" uid="uid://dpkj54apb21go" path="res://enemy.tscn" id="3_vcri4"]
+[ext_resource type="PackedScene" uid="uid://dbxvylbosilfv" path="res://meteor.tscn" id="5_bc2v4"]
 
 [node name="level" type="Node2D"]
 position = Vector2(0, 3050)
@@ -63,3 +64,7 @@ offset_right = 163.0
 offset_bottom = -2290.0
 scale = Vector2(31.3922, 10.9717)
 text = "you died :("
+
+[node name="Node2D" parent="." instance=ExtResource("5_bc2v4")]
+position = Vector2(3202, 139)
+scale = Vector2(5, 5)

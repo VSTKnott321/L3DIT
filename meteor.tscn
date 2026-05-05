@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbxvylbosilfv"]
+
+[ext_resource type="Texture2D" uid="uid://cr5a7flbn2y5m" path="res://sprites/spherewip.png" id="1_14nk2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qixog"]
+radius = 52.0384
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aahou"]
+radius = 173.401
+
+[node name="Node2D" type="StaticBody2D"]
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qixog")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0.500004)
+scale = Vector2(0.325, 0.321875)
+texture = ExtResource("1_14nk2")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_aahou")
