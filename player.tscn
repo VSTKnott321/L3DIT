@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://rotating_part.gd" id="1_2oek7"]
 [ext_resource type="Texture2D" uid="uid://2jj182lqac82" path="res://sprites/lazergunsprite.png" id="2_wxhcp"]
 [ext_resource type="Texture2D" uid="uid://d14a8heeux0je" path="res://sprites/cannon.png" id="3_2s4nj"]
-[ext_resource type="Texture2D" uid="uid://cr5a7flbn2y5m" path="res://sprites/spherewip.png" id="3_523gh"]
 [ext_resource type="Texture2D" uid="uid://bwj4d3eincdxt" path="res://sprites/shotgun1.png" id="4_x0jom"]
 [ext_resource type="Texture2D" uid="uid://c7fc77efukar4" path="res://sprites/autogun.png" id="5_a2g15"]
 [ext_resource type="Texture2D" uid="uid://bqyo2io5yijtk" path="res://sprites/L4cannon.png" id="5_cp7k8"]
@@ -12,11 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://bacsxtnmnlh6c" path="res://sprites/L3Autogun.png" id="8_ha30v"]
 [ext_resource type="Texture2D" uid="uid://csv22rs7us3yp" path="res://sprites/autogunL3.png" id="8_we46k"]
 [ext_resource type="Texture2D" uid="uid://b7tmwi0fvrhh3" path="res://sprites/L4Shotgun.png" id="11_s81c0"]
+[ext_resource type="Texture2D" uid="uid://c1qjnx5tcljne" path="res://sprites/character_body.png" id="12_ohga1"]
 
 [sub_resource type="GDScript" id="GDScript_0gctd"]
 script/source = "extends CharacterBody2D
-
-
+class_name Player 
 signal died
 
 
@@ -966,6 +965,7 @@ shape = SubResource("CircleShape2D_3md2i")
 script = ExtResource("1_2oek7")
 
 [node name="L1gun" type="AnimatedSprite2D" parent="CollisionShape2D"]
+visible = false
 position = Vector2(168, 7.5)
 scale = Vector2(0.4, 0.334)
 sprite_frames = SubResource("SpriteFrames_h2xbp")
@@ -981,7 +981,6 @@ frame = 19
 frame_progress = 1.0
 
 [node name="L3Cannon" type="AnimatedSprite2D" parent="CollisionShape2D"]
-visible = false
 position = Vector2(158, 2.5)
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_r6tfh")
@@ -1049,19 +1048,19 @@ position = Vector2(180, 0)
 target_position = Vector2(3000, 2.08165e-12)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(594, 312)
-scale = Vector2(0.401, 0.4)
-texture = ExtResource("3_523gh")
+position = Vector2(588, 311.5)
+scale = Vector2(2.26, 2.17647)
+texture = ExtResource("12_ohga1")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(594, 311)
+position = Vector2(594, 312)
 shape = SubResource("CircleShape2D_7r56c")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(594, 307)
+position = Vector2(600, 300)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
