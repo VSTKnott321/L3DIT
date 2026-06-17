@@ -1,19 +1,32 @@
-extends Area2D
+extends Node2D
+
+const SPEED: int = 2000
+
+@onready var bulletparticle = load("res://bulletparticle.tscn")
+
+
+var dir : float
+var spawnpos : Vector2
+var spawnrot : float
 
 
 
 
-const speed = 2
-var direction: Vector2
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	global_position += direction * speed
+func _process(delta: float) -> void:
+	position += transform.x * SPEED * delta
 
+
+
+
+
+
+
+
+
+func _on_bullet_body_entered(body: Node2D) -> void:
+	bulletparticle.instantiate()
+	queue_free()
 
 
