@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="new L3 2d game project"
-run/main_scene="res://main_menus.tscn"
+run/main_scene="res://levels/main_menus.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 

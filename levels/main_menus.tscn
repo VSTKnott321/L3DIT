@@ -1,11 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://cwheaf5g4nc84"]
 
-[ext_resource type="Texture2D" uid="uid://brd0h4a0v54rv" path="res://icon.svg" id="1_2w1bh"]
-[ext_resource type="Script" path="res://main_menus.gd" id="1_erst5"]
-[ext_resource type="FontFile" uid="uid://bbe1puakq6x6d" path="res://DirtyStains-DEMO.otf" id="2_40l41"]
+[ext_resource type="Script" path="res://levels/main_menus.gd" id="1_aucke"]
+[ext_resource type="Texture2D" uid="uid://brd0h4a0v54rv" path="res://icon.svg" id="2_sloa2"]
+[ext_resource type="FontFile" uid="uid://bbe1puakq6x6d" path="res://DirtyStains-DEMO.otf" id="3_tnh27"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_83kjl"]
-texture = ExtResource("1_2w1bh")
+texture = ExtResource("2_sloa2")
 modulate_color = Color(0.294118, 0.294118, 0.294118, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12sgr"]
@@ -23,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_erst5")
+script = ExtResource("1_aucke")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -89,7 +89,7 @@ offset_right = 556.5
 offset_bottom = 290.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_40l41")
+theme_override_fonts/font = ExtResource("3_tnh27")
 theme_override_font_sizes/font_size = 100
 text = "Heliolescent"
 

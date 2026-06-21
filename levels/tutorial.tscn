@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://biegtmkn6calo"]
+
+[ext_resource type="Script" path="res://levels/world.gd" id="1_b63tw"]
+[ext_resource type="PackedScene" uid="uid://dghlvllfqxfl0" path="res://player.tscn" id="2_2llqf"]
+[ext_resource type="PackedScene" uid="uid://b6n2phpnel3p1" path="res://platforms_test.tscn" id="3_p7x8m"]
+[ext_resource type="PackedScene" uid="uid://dpkj54apb21go" path="res://enemy.tscn" id="4_1oe7b"]
+[ext_resource type="PackedScene" uid="uid://dbxvylbosilfv" path="res://meteor.tscn" id="5_3dag6"]
+[ext_resource type="Texture2D" uid="uid://brd0h4a0v54rv" path="res://icon.svg" id="6_3s6es"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v2jdt"]
+texture = ExtResource("6_3s6es")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_47i2x"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 42
+sources/0 = SubResource("TileSetAtlasSource_v2jdt")
+
+[node name="Tutorial" type="Node2D"]
+position = Vector2(0, 3050)
+script = ExtResource("1_b63tw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -5264.0
+offset_top = -3706.0
+offset_right = -2104.0
+offset_bottom = -1652.0
+scale = Vector2(23.5543, 39.4996)
+color = Color(0, 0, 0, 1)
+
+[node name="player" parent="." instance=ExtResource("2_2llqf")]
+position = Vector2(2, 9)
+scale = Vector2(0.990924, 1)
+
+[node name="platforms_test" parent="." instance=ExtResource("3_p7x8m")]
+position = Vector2(163, 590)
+scale = Vector2(3, 1)
+
+[node name="platforms_test2" parent="." instance=ExtResource("3_p7x8m")]
+position = Vector2(1698, 256)
+scale = Vector2(1, 0.68)
+
+[node name="platforms_test3" parent="." instance=ExtResource("3_p7x8m")]
+position = Vector2(1251, 991)
+scale = Vector2(3, 1)
+
+[node name="platforms_test4" parent="." instance=ExtResource("3_p7x8m")]
+position = Vector2(46, 1242)
+scale = Vector2(3, 1)
+
+[node name="platforms_test5" parent="." instance=ExtResource("3_p7x8m")]
+position = Vector2(-8.99976, -47)
+rotation = 1.5865
+scale = Vector2(5, 1)
+
+[node name="platforms_test6" parent="." instance=ExtResource("3_p7x8m")]
+position = Vector2(2663, -103)
+rotation = 1.5865
+scale = Vector2(5, 1)
+
+[node name="Enemy" parent="." instance=ExtResource("4_1oe7b")]
+position = Vector2(2382, 713)
+scale = Vector2(1.5, 1.5)
+
+[node name="platforms_test7" parent="." instance=ExtResource("3_p7x8m")]
+position = Vector2(-3421, 1656)
+rotation = 0.0114931
+scale = Vector2(57.2154, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 43.0
+offset_top = -2316.0
+offset_right = 163.0
+offset_bottom = -2290.0
+scale = Vector2(31.3922, 10.9717)
+text = "you died :("
+
+[node name="Node2D" parent="." instance=ExtResource("5_3dag6")]
+position = Vector2(3202, 139)
+scale = Vector2(5, 5)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_47i2x")
+cell_quadrant_size = 1
+collision_animatable = true
+format = 2
+layer_0/tile_data = PackedInt32Array(196616, 0, 0, 65545, 0, 0, -65531, 0, 0, 14, 0, 0, 655388, 0, 0, 655389, 0, 0, 655390, 0, 0, 655391, 0, 0, 655392, 0, 0, 655393, 0, 0, 655394, 0, 0, 458789, 0, 0, 458790, 0, 0, 458791, 0, 0, 458792, 0, 0, 327715, 0, 0, 327714, 0, 0, 262178, 0, 0, 65576, 0, 0, 65577, 0, 0, 41, 0, 0, 36, 0, 0, -131039, 0, 0, -131043, 0, 0, -131046, 0, 0, -196598, 0, 0, -196597, 0, 0, -196596, 0, 0, -327672, 0, 0, -458747, 0, 0, -458748, 0, 0, -524277, 0, 0, -524276, 0, 0, -524275, 0, 0, 48, 0, 0, 49, 0, 0, 50, 0, 0, 51, 0, 0, 52, 0, 0, 53, 0, 0, 196666, 0, 0, 196667, 0, 0, 196668, 0, 0, 196669, 0, 0, 196670, 0, 0, 196671, 0, 0, 196672, 0, 0, 196673, 0, 0, 196674, 0, 0, 196675, 0, 0, 720951, 0, 0, 720952, 0, 0, 720953, 0, 0, 524340, 0, 0, 524282, 0, 0, 524281, 0, 0, 524280, 0, 0, 720892, 0, 0, 262140, 0, 0, 131065, 0, 0, 393207, 0, 0)
