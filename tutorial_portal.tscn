@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwh8t0fjprnyt"]
+
+[ext_resource type="Script" path="res://Node2D.gd" id="1_lftfa"]
+[ext_resource type="Texture2D" uid="uid://ct7uqfmraiusx" path="res://sprites/hitscan.png" id="2_84143"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_82wct"]
+radius = 71.8471
+
+[node name="Tutorial_Portal" type="Node2D"]
+script = ExtResource("1_lftfa")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_82wct")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.00001, 3.8147e-06)
+scale = Vector2(4.93333, 4.4)
+texture = ExtResource("2_84143")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

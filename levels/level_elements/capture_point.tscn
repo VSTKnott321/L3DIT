@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://6dqxtpfoo1yo"]
+
+[ext_resource type="Script" path="res://capture_point.gd" id="1_gbx23"]
+[ext_resource type="FontFile" uid="uid://bbe1puakq6x6d" path="res://DirtyStains-DEMO.otf" id="2_ogwo7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0xksn"]
+radius = 226.93
+
+[node name="capture_point" type="Node2D"]
+script = ExtResource("1_gbx23")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_0xksn")
+
+[node name="Timer" type="Timer" parent="Area2D"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -25.0
+offset_top = -68.0
+offset_right = 15.0
+offset_bottom = -45.0
+theme_override_fonts/font = ExtResource("2_ogwo7")
+theme_override_font_sizes/font_size = 50
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Area2D/Timer" to="." method="_on_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://hpt4frcgjpp5"]
+[gd_scene load_steps=13 format=3 uid="uid://hpt4frcgjpp5"]
 
 [ext_resource type="Texture2D" uid="uid://d2cq6itpjlrec" path="res://sprites/lazerbullet.png" id="1_bbig6"]
 [ext_resource type="Script" path="res://bullet.gd" id="1_ficnd"]
@@ -35,6 +35,39 @@ animations = [{
 "speed": 8.2
 }]
 
+[sub_resource type="Gradient" id="Gradient_n538h"]
+offsets = PackedFloat32Array(0.528846, 1)
+colors = PackedColorArray(0, 1, 1, 1, 0, 0, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_amygr"]
+gradient = SubResource("Gradient_n538h")
+
+[sub_resource type="Curve" id="Curve_fulyi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.726853, 0.510588), 0.0, 0.0, 0, 0, Vector2(0.998333, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_c8un0"]
+curve = SubResource("Curve_fulyi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yfry0"]
+particle_flag_disable_z = true
+direction = Vector3(-100, 2.08165e-12, 2.08165e-12)
+spread = 90.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = 2.08167e-15
+linear_accel_max = 2.08167e-15
+radial_accel_min = 2.08167e-15
+radial_accel_max = 2.08167e-15
+scale_min = 10.0
+scale_max = 20.0
+scale_curve = SubResource("CurveTexture_c8un0")
+color = Color(0, 1, 1, 1)
+color_ramp = SubResource("GradientTexture1D_amygr")
+
 [node name="bullet" type="CharacterBody2D"]
 collision_layer = 32
 collision_mask = 13
@@ -57,6 +90,15 @@ frame_progress = 0.801853
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 1)
 shape = SubResource("CircleShape2D_i4760")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_yfry0")
+lifetime = 0.75
+one_shot = true
+explosiveness = 1.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_bullet_body_entered"]

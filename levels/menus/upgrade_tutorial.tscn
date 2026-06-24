@@ -1,0 +1,137 @@
+[gd_scene load_steps=6 format=3 uid="uid://chx3uufoigu0c"]
+
+[ext_resource type="Script" path="res://levels/menus/upgrade_tutorial.gd" id="1_2s61e"]
+[ext_resource type="Texture2D" uid="uid://brd0h4a0v54rv" path="res://icon.svg" id="1_2vfsf"]
+[ext_resource type="FontFile" uid="uid://bbe1puakq6x6d" path="res://DirtyStains-DEMO.otf" id="2_4du0x"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ywkrq"]
+texture = ExtResource("1_2vfsf")
+modulate_color = Color(0.294118, 0.294118, 0.294118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0c31"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 13
+
+[node name="Upgrade_tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2s61e")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ywkrq")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -554.0
+offset_top = -666.0
+offset_right = 559.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_4du0x")
+theme_override_font_sizes/font_size = 100
+text = "Upgrades"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -412.0
+offset_top = -44.0
+offset_right = -40.0
+offset_bottom = 44.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_d0c31")
+text = "Continue to: level one
+"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 44.0
+offset_top = -46.0
+offset_right = 416.0
+offset_bottom = 43.0
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_d0c31")
+text = "Quit!
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -601.0
+offset_top = -269.0
+offset_right = -214.0
+offset_bottom = 269.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 80
+
+[node name="Button_E1" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_d0c31")
+text = "Explosive 1
+"
+
+[node name="Button_S1" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_d0c31")
+text = "Shotgun 1
+"
+
+[node name="Button_R1" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_d0c31")
+text = "Rapid-Fire 1
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_level1_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button_E1" to="." method="_on_upgrade_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button_S1" to="." method="_on_upgrade_s_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button_R1" to="." method="_on_upgrade_r_1_pressed"]

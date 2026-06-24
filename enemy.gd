@@ -2,28 +2,25 @@ extends CharacterBody2D
 class_name Enemy
 
 
-#var player: Player = null
+var speed = 0.25
+var player_chase = false
+var player = null
+
 
 func _physics_process(delta):
-	pass
+	if player_chase:
+		position = lerp(position, player.position, speed * delta)
+		#position += (player.position - position)/speed
+
+
+
+func _on_sight_body_entered(body):
+	player = body
+	player_chase = true
 
 
 
 
-
-#func _on_sight_body_entered(body: Node2D) -> void:
-	#if body is Player:
-		#if player == null:
-			#player = body
-			#print(name + "found the player") 
-
-
-#func _on_player_body_exited(body):
-	#pass # Replace with function body.
-
-
-#func _on_sight_body_exited(body):
-	#if body is Player:
-		#if player != null:
-			#player = body
-			#print(name + "found the player")
+func _on_sight_body_exited(body):
+	player = null
+	player_chase = false
