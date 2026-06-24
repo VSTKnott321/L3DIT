@@ -132,13 +132,13 @@ animations = [{
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 8
-collision_mask = 49
+collision_mask = 17
 script = ExtResource("1_41cmg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qjip7")
 autoplay = "default"
-frame_progress = 0.869128
+frame_progress = 0.752194
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(17, 1.5)
@@ -166,5 +166,22 @@ sprite_frames = SubResource("SpriteFrames_fjw12")
 autoplay = "default"
 frame_progress = 0.600481
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="dmg_hitbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dmg_hitbox"]
+position = Vector2(17, 1.5)
+shape = SubResource("RectangleShape2D_rd0eh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="dmg_hitbox"]
+position = Vector2(32.757, -128.493)
+rotation = -1.56784
+scale = Vector2(1.96011, -0.44)
+shape = SubResource("RectangleShape2D_rd0eh")
+
 [connection signal="body_entered" from="sight" to="." method="_on_sight_body_entered"]
 [connection signal="body_exited" from="sight" to="." method="_on_sight_body_exited"]
+[connection signal="body_entered" from="dmg_hitbox" to="." method="_on_dmg_hitbox_body_entered"]

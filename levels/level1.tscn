@@ -71,4 +71,8 @@ position = Vector2(3202, 139)
 scale = Vector2(5, 5)
 
 [node name="capture_point" parent="." instance=ExtResource("6_dtp3j")]
-position = Vector2(1188, 436)
+position = Vector2(3204, 137)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_vcri4")]
+position = Vector2(875, -1174)
+scale = Vector2(1.5, 1.5)

@@ -105,8 +105,6 @@ func shoot():
 		var collider = barrel.get_collider()
 		if collider is StaticBody2D:
 			pass
-		#elif collider is Enemy:
-			#pass
 	$CollisionShape2D/L1gun.play(\"default\")
 	$CollisionShape2D/L3Cannon.play(\"default\")
 	$CollisionShape2D/L2shotgun.play(\"default\")
@@ -120,12 +118,12 @@ func shoot():
 
 
 
-	#lazerbullet.instantiate()
-	#lazerbullet.global_position = barrel.global_position
+
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	health = health -25
+	#replace with actual damage function dependent on enemy
 
 
 
@@ -978,6 +976,7 @@ shape = SubResource("CircleShape2D_3md2i")
 script = ExtResource("1_2oek7")
 
 [node name="L1gun" type="AnimatedSprite2D" parent="CollisionShape2D"]
+visible = false
 position = Vector2(168, 7.5)
 scale = Vector2(0.4, 0.334)
 sprite_frames = SubResource("SpriteFrames_h2xbp")
@@ -1009,7 +1008,6 @@ frame = 7
 frame_progress = 1.0
 
 [node name="L2autogun" type="AnimatedSprite2D" parent="CollisionShape2D"]
-visible = false
 position = Vector2(137, 3.5)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_0dahs")

@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://bbe1puakq6x6d" path="res://DirtyStains-DEMO.otf" id="2_ogwo7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xksn"]
-radius = 226.93
+radius = 1876.0
 
 [node name="capture_point" type="Node2D"]
 script = ExtResource("1_gbx23")
@@ -17,7 +17,7 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_0xksn")
 
 [node name="Timer" type="Timer" parent="Area2D"]
-wait_time = 5.0
+wait_time = 30.0
 one_shot = true
 
 [node name="Label" type="Label" parent="."]
