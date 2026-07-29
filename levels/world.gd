@@ -19,11 +19,11 @@ func _process(delta):
 		pass
 func PauseMenu():
 	if paused:
-		menu.hide()
-		Engine.time_scale = 1
+		menu.visible = true
+		get_tree().paused = true
 	else:
-		menu.show()
-		Engine.time_scale = 0
+		menu.visible = false
+		get_tree().paused = false
 		
 	
 	
