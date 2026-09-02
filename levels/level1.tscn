@@ -9,11 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://6dqxtpfoo1yo" path="res://levels/level_elements/capture_point.tscn" id="6_dtp3j"]
 
 [node name="level" type="Node2D"]
-position = Vector2(0, 3050)
+position = Vector2(290, 2874)
 script = ExtResource("1_6c6dl")
 
 [node name="background sprite" type="Sprite2D" parent="."]
-position = Vector2(1442, 96.4999)
+position = Vector2(1513, 26)
 scale = Vector2(12.4419, 8.36434)
 texture = ExtResource("2_43uic")
 
@@ -65,7 +65,7 @@ position = Vector2(3202, 139)
 scale = Vector2(5, 5)
 
 [node name="capture_point" parent="." instance=ExtResource("6_dtp3j")]
-position = Vector2(3204, 137)
+position = Vector2(3204, 141)
 
 [node name="Enemy2" parent="." instance=ExtResource("3_vcri4")]
 position = Vector2(875, -1174)
