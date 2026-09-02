@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://du6yg1qfbgrqj"]
+[gd_scene load_steps=8 format=3 uid="uid://du6yg1qfbgrqj"]
 
 [ext_resource type="PackedScene" uid="uid://dghlvllfqxfl0" path="res://player.tscn" id="1_4ope4"]
 [ext_resource type="Script" path="res://levels/world.gd" id="1_6c6dl"]
 [ext_resource type="PackedScene" uid="uid://b6n2phpnel3p1" path="res://levels/level_elements/platforms_test.tscn" id="2_31dan"]
+[ext_resource type="Texture2D" uid="uid://6wqxovg5m5aq" path="res://sprites/galaxybackgrnd.jpeg" id="2_43uic"]
 [ext_resource type="PackedScene" uid="uid://dpkj54apb21go" path="res://enemy.tscn" id="3_vcri4"]
 [ext_resource type="PackedScene" uid="uid://dbxvylbosilfv" path="res://meteor.tscn" id="5_bc2v4"]
 [ext_resource type="PackedScene" uid="uid://6dqxtpfoo1yo" path="res://levels/level_elements/capture_point.tscn" id="6_dtp3j"]
@@ -11,17 +12,10 @@
 position = Vector2(0, 3050)
 script = ExtResource("1_6c6dl")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -5264.0
-offset_top = -3706.0
-offset_right = -2104.0
-offset_bottom = -1652.0
-scale = Vector2(23.5543, 39.4996)
-color = Color(0, 0, 0, 1)
-
-[node name="player" parent="." instance=ExtResource("1_4ope4")]
-position = Vector2(543, 243)
-scale = Vector2(0.990924, 1)
+[node name="background sprite" type="Sprite2D" parent="."]
+position = Vector2(1442, 96.4999)
+scale = Vector2(12.4419, 8.36434)
+texture = ExtResource("2_43uic")
 
 [node name="platforms_test" parent="." instance=ExtResource("2_31dan")]
 position = Vector2(163, 590)
@@ -76,3 +70,7 @@ position = Vector2(3204, 137)
 [node name="Enemy2" parent="." instance=ExtResource("3_vcri4")]
 position = Vector2(875, -1174)
 scale = Vector2(1.5, 1.5)
+
+[node name="player" parent="." instance=ExtResource("1_4ope4")]
+position = Vector2(543, 243)
+scale = Vector2(0.990924, 1)

@@ -2,25 +2,24 @@
 
 [ext_resource type="Script" path="res://levels/world.gd" id="1_b63tw"]
 [ext_resource type="PackedScene" uid="uid://dghlvllfqxfl0" path="res://player.tscn" id="2_2llqf"]
-[ext_resource type="PackedScene" uid="uid://b6n2phpnel3p1" path="res://platforms_test.tscn" id="3_p7x8m"]
+[ext_resource type="PackedScene" uid="uid://b6n2phpnel3p1" path="res://levels/level_elements/platforms_test.tscn" id="3_p7x8m"]
 [ext_resource type="PackedScene" uid="uid://dpkj54apb21go" path="res://enemy.tscn" id="4_1oe7b"]
 [ext_resource type="PackedScene" uid="uid://dbxvylbosilfv" path="res://meteor.tscn" id="5_3dag6"]
-[ext_resource type="Texture2D" uid="uid://brd0h4a0v54rv" path="res://icon.svg" id="6_3s6es"]
+[ext_resource type="Texture2D" uid="uid://brd0h4a0v54rv" path="res://icon.svg" id="6_p2p8w"]
 [ext_resource type="PackedScene" uid="uid://dwh8t0fjprnyt" path="res://tutorial_portal.tscn" id="7_18uao"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v2jdt"]
-texture = ExtResource("6_3s6es")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_djiw8"]
+texture = ExtResource("6_p2p8w")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 
 [sub_resource type="TileSet" id="TileSet_47i2x"]
 tile_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 42
-sources/0 = SubResource("TileSetAtlasSource_v2jdt")
+sources/0 = SubResource("TileSetAtlasSource_djiw8")
 
 [node name="Tutorial" type="Node2D"]
 position = Vector2(0, 3050)
