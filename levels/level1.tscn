@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://6dqxtpfoo1yo" path="res://levels/level_elements/capture_point.tscn" id="6_dtp3j"]
 
 [node name="level" type="Node2D"]
-position = Vector2(290, 2874)
+position = Vector2(-46, -32)
 script = ExtResource("1_6c6dl")
 
 [node name="background sprite" type="Sprite2D" parent="."]
